@@ -110,6 +110,7 @@ bio.display();
 //display work
 function displayWork() {
     for (var job in work.jobs) {
+      if(work.jobs.hasOwnProperty(job)){
         $("#workExperience").append(HTMLworkStart);
         var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
         var formatttedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
@@ -121,6 +122,7 @@ function displayWork() {
         $(".work-entry:last").append(formattedDates);
         $(".work-entry:last").append(formattedWorkLocation);
         $(".work-entry:last").append(formattedWorkDescription);
+      }
 
     }
 }
@@ -128,6 +130,7 @@ displayWork();
 
 function displayProject() {
     for (var project in projects.projects) {
+      if(projects.projects.hasOwnProperty(project)){
         $("#projects").append(HTMLprojectStart);
         var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
         var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].date);
@@ -142,6 +145,7 @@ function displayProject() {
             formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[i]);
             $(".project-entry:last").append(formattedProjectImage);
         }
+      }
 
     }
 }
@@ -153,6 +157,7 @@ displayProject();
 function displayEducation() {
 
     for (var school in education.schools) {
+      if(education.schools.hasOwnProperty(school)){
         $("#education").append(HTMLschoolStart);
         var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
         var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
@@ -164,6 +169,7 @@ function displayEducation() {
         $(".education-entry:last").append(formattedSchoolDates);
         $(".education-entry:last").append(formattedSchoolLocation);
         $(".education-entry:last").append(formattedSchoolMajor);
+      }
     }
 
 }
@@ -174,6 +180,7 @@ displayEducation();
 function displayonlineCourses() {
     $("#education").append(HTMLonlineClasses);
     for (var course in education.onlineCourses) {
+      if(education.onlineCourses.hasOwnProperty(course)){
         $("#education").append(HTMLschoolStart);
         var formattedonlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
         var formattedonlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
@@ -182,6 +189,7 @@ function displayonlineCourses() {
         $(".education-entry:last").append(formattedonlineTitle + formattedonlineSchool);
         $(".education-entry:last").append(formattedonlineDates);
         $(".education-entry:last").append(formattedonlineURL);
+      }
     }
 }
 displayonlineCourses();
