@@ -1,11 +1,22 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
-var formattedName = HTMLheaderName.replace("%data%", "Yun Suk Choi");
-var role = "Front Web Developer";
-var formattedRole = HTMLheaderRole.replace("%data%", role);
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
+var header = {
+    "name": "Yun Suk Choi",
+    "role": "Front-End Developer"
+};
+
+header.display = function() {
+    var formattedName = HTMLheaderName.replace("%data%", header.name);
+    var formattedRole = HTMLheaderRole.replace("%data%", header.role);
+
+
+    $("#header").prepend(formattedRole);
+    $("#header").prepend(formattedName);
+
+};
+header.display();
+
 
 var bio = {
     "name": "Yun Suk Choi",
@@ -98,7 +109,7 @@ bio.display = function() {
 bio.display();
 
 //display work
-function displayWork() {
+work.display = function() {
     $("#workExperience").append(HTMLworkStart);
     for (var i = 0; i < work.jobs.length; i++) {
 
@@ -115,10 +126,11 @@ function displayWork() {
         $(".work-entry:last").append(formattedWorkDescription);
 
     }
-}
-displayWork();
+};
+work.display();
 
-function displayProject() {
+//display projects
+projects.display = function() {
     $("#projects").append(HTMLprojectStart);
     for (var i = 0; i < projects.projects.length; i++) {
 
@@ -140,15 +152,13 @@ function displayProject() {
         }
     }
 
-}
-displayProject();
+};
+projects.display();
 
 
 
 // display school
-function displayEducation() {
-
-
+education.schools.display = function() {
     $("#education").append(HTMLschoolStart);
     for (var i = 0; i < education.schools.length; i++) {
         var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
@@ -165,14 +175,14 @@ function displayEducation() {
         $(".education-entry:last").append(formattedURL);
 
     }
-}
-displayEducation();
+};
+education.schools.display();
 
 
 
 
 //display online course
-function displayonlineCourses() {
+education.onlineCourses.display = function() {
     $("#education").append(HTMLonlineClasses);
     $("#education").append(HTMLschoolStart);
     for (var i = 0; i < education.onlineCourses.length; i++) {
@@ -185,8 +195,8 @@ function displayonlineCourses() {
         $(".education-entry:last").append(formattedonlineDates);
         $(".education-entry:last").append(formattedonlineURL);
     }
-}
-displayonlineCourses();
+};
+education.onlineCourses.display();
 
 
 $("#mapDiv").append(googleMap);
