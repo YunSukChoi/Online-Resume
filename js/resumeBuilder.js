@@ -1,23 +1,3 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
-var header = {
-    "name": "Yun Suk Choi",
-    "role": "Front-End Developer"
-};
-
-header.display = function() {
-    var formattedName = HTMLheaderName.replace("%data%", header.name);
-    var formattedRole = HTMLheaderRole.replace("%data%", header.role);
-
-
-    $("#header").prepend(formattedRole);
-    $("#header").prepend(formattedName);
-
-};
-header.display();
-
-
 var bio = {
     "name": "Yun Suk Choi",
     "role": "Front Web Developer",
@@ -90,6 +70,13 @@ bio.display = function() {
     var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
     var formattedPicture = HTMLbioPic.replace('%data%', bio.biopic);
     var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+
+
+    $("#header").prepend(formattedRole);
+    $("#header").prepend(formattedName);
+
 
     //header and footer contacts info
     $("#topContacts").after(formattedPicture, formattedWelcome);
@@ -158,7 +145,7 @@ projects.display();
 
 
 // display school
-education.schools.display = function() {
+education.display = function() {
     $("#education").append(HTMLschoolStart);
     for (var i = 0; i < education.schools.length; i++) {
         var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
@@ -175,14 +162,7 @@ education.schools.display = function() {
         $(".education-entry:last").append(formattedURL);
 
     }
-};
-education.schools.display();
 
-
-
-
-//display online course
-education.onlineCourses.display = function() {
     $("#education").append(HTMLonlineClasses);
     $("#education").append(HTMLschoolStart);
     for (var i = 0; i < education.onlineCourses.length; i++) {
@@ -195,8 +175,11 @@ education.onlineCourses.display = function() {
         $(".education-entry:last").append(formattedonlineDates);
         $(".education-entry:last").append(formattedonlineURL);
     }
+
 };
-education.onlineCourses.display();
+education.display();
+
+
 
 
 $("#mapDiv").append(googleMap);
