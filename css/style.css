@@ -34,7 +34,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #7B7B7B;
   line-height: 29px;
   padding: 10px;
 }
@@ -42,8 +42,9 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000;
+  color: #484545;
   line-height: 22px;
+  margin-top: 23px;
 }
 
 h4 {
@@ -124,12 +125,12 @@ a {
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+  background-color: #334a58;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #334a58;
 }
 
 .flex-box {
